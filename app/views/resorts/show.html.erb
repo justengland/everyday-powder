@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @resort.name %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @resort.lat %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%= @resort.long %>
+</p>
+
+<h2>Forecast</h2>
+<table>
+	<% @resort.resortforecast.forecastTimes.each do |ft| %>
+	<tr>
+		<td rowspan=3><img src='<%= ft.weatherIcon %>' /></td>
+		<td>Forecast: <%= ft.desc %></td>		
+	</tr>
+	<tr>
+		<td>Temp: <%= ft.tempForecast %></td>		
+	</tr>
+	<tr>
+		<td>debug: <%= ft.summary %></td>			
+	</tr>
+	<% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_resort_path(@resort) %> |
+<%= link_to 'Back', resorts_path %>

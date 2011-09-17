@@ -1,0 +1,33 @@
+<h1>Listing resorts</h1>
+
+<table border=1px bordercolor=blue>
+  <tr>
+    <th>Name</th>
+    <th>Lat</th>
+    <th>Long</th>
+    <th>forecast Location</th>
+    <th>Snowfall</th>
+    <th>Details</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+
+<% @resorts.each do |resort| %>
+  <tr>
+    <td><%= resort.name %></td>
+    <td><%= resort.lat %></td>
+    <td><%= resort.long %></td>
+    <td><a href='<%= resort.resortforecast.forecastUrl %>'> <%= resort.resortforecast.description %></a></td>
+    <td><%= resort.resortSnowfall.last24hours %></td>
+    
+    <td><%= link_to 'Show', resort %></td>
+    <td><%= link_to 'Edit', edit_resort_path(resort) %></td>
+    <td><%= link_to 'Destroy', resort, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Resort', new_resort_path %>
+<a href="/resorts/1/map">View Map</a>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? content_for(:title) : 'Set Title' %></title>
+  <%= stylesheet_link_tag :all %>
+  <%= csrf_meta_tag %>
+  
+</head>
+<body>
+<div id="main">
+<%= yield %>
+
+</div>
+<!-- Application Level Javascript -->
+<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js", "application.js" %>
+  
+<!-- Page level javascript -->
+<%= yield(:page_javascript) %> 
+</body>
+</html>

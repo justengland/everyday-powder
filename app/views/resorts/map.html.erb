@@ -1,0 +1,17 @@
+<%= title "Map page fool" %>
+
+<% content_for(:page_javascript) do %>
+<%= javascript_include_tag 'http://maps.google.com/maps?file=api&amp;v=2&amp;key=abcdefg&sensor=true_or_false', 'map-page' %>
+
+
+<% end %>
+
+   <div id="mapCanvas" style="width: 500px; height: 300px"></div>
+   <div id="mapLocations">
+   	<% @resorts.each do |resort| %>
+   	<div class="resortMarkers" name="<%= resort.name %>" lat="<%= resort.lat %>" long="<%= resort.long %>" resortId="<%= resort.id %>" >
+	<% end %>   	
+   	</div>
+  
+</table>
+
